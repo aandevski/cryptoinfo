@@ -7,3 +7,21 @@ export class Currency extends Component {
 	}
 
 }
+
+
+export class CurrencyRow extends Component {
+	render() {
+		return (
+			<tr>
+				<td>
+					<img
+						src={'https://www.cryptocompare.com' + this.props.details.ImageUrl}
+						style={{width: 50}}
+					/>
+				</td>
+				<td>{this.props.details.Name}</td>
+				<td>{this.props.details.Algorithm}</td>
+			</tr>
+		)
+	}
+}

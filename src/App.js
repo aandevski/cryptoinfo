@@ -13,13 +13,15 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route exact path='/currencies' component={Currencies} />
-          <Route path='/currencies/:id' component={Currency} />
-          <Route path='/rigs' component={MiningRigs} />
-          <Route path='/converter' component={Converter} />
-        </Switch>
+        <div class="container">
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/currencies' component={Currencies} />
+            <Route path='/currencies/:id' component={Currency} />
+            <Route path='/rigs' component={MiningRigs} />
+            <Route path='/converter' component={Converter} />
+          </Switch>
+          </div>
       </div>
     );
   }
