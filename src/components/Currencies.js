@@ -6,7 +6,6 @@ import {Table} from 'react-bootstrap'
 import {CurrencyRow} from './Currency'
 
 export class Currencies extends Component {
-
   render() {
     return (
       <div>
@@ -14,8 +13,11 @@ export class Currencies extends Component {
           <thead>
             <tr>
               <th>Logo</th>
-              <th>Short Name</th>
+              <th>Symbol</th>
+              <th>Coin Name</th>
               <th>Algorithm</th>
+              <th>Proof Type</th>
+              <th>Total Coin Supply</th>
             </tr>
           </thead>
           <tbody>
