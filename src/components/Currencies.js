@@ -9,7 +9,7 @@ export class Currencies extends Component {
   render() {
     return (
       <div>
-        <Table>
+        <Table hover>
           <thead>
             <tr>
               <th>Logo</th>

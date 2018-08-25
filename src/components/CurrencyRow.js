@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import config from '../config'
 
 export class CurrencyRow extends Component {
+	constructor(props) {
+		super(props)
+		this.handleClick = this.handleClick.bind(this)
+	}
+	handleClick() {
+		window.location.href = '/currencies/' + this.props.details.Symbol
+	}
 	render() {
 		return (
-			<tr>
+			<tr onClick={this.handleClick}>
 				<td>
 					<img
-						src={'https://www.cryptocompare.com' + this.props.details.ImageUrl}
+						src={config.baseUrl + this.props.details.ImageUrl}
 						style={{width: 50}}
 					/>
 				</td>
