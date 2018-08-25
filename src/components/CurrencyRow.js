@@ -7,7 +7,7 @@ export class CurrencyRow extends Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 	handleClick() {
-		window.location.href = '/currencies/' + this.props.details.Symbol
+		window.location.href = '/currencies/' + this.props.details.Name
 	}
 	render() {
 		return (
