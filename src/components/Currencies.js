@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import {Table} from 'react-bootstrap'
 
-import {CurrencyRow} from './Currency'
+import {CurrencyRow} from './CurrencyRow'
 
 export class Currencies extends Component {
   render() {
