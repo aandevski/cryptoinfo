@@ -22,7 +22,7 @@ export class CurrencyRow extends Component {
 				<td>{this.props.details.FullName}</td>
 				<td>{this.props.details.Algorithm}</td>
 				<td>{this.props.details.ProofType}</td>
-				<td>{this.props.details.TotalCoinSupply == 0 ? 'N/A' : this.props.details.TotalCoinSupply}</td>
+				<td>{this.props.details.price == 0 ? 'N/A' : this.props.details.price}</td>
 			</tr>
 		)
 	}

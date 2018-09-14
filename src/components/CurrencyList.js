@@ -20,7 +20,7 @@ export class CurrencyList extends Component {
 							<th>Coin Name</th>
 							<th>Algorithm</th>
 							<th>Proof Type</th>
-							<th>Total Coin Supply</th>
+							<th>Price (USD)</th>
 						</tr>
 					</thead>
 					<tbody>

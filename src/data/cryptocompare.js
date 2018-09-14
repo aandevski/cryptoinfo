@@ -25,6 +25,9 @@ export class Cryptocompare {
 		}, errorMsg => {
 			console.log(errorMsg);
 		}).then(jsonResponse => {
+			jsonResponse.Data.forEach(function(curr) {
+				curr.CoinInfo.price = parseFloat(curr.ConversionInfo.RAW[0].split('~')[5]);
+			});
 			return jsonResponse.Data.slice(0, limit);
 		});
 	}
