@@ -15,7 +15,6 @@ export class Header extends Component {
 			  </Navbar.Header>
 			  <Nav>
 			  	<li><Link to="/currencies">Currencies</Link></li>
-			  	<li><Link to="/rigs">Mining rigs</Link></li>
 			  	<li><Link to="/converter">Converter</Link></li>
 			  </Nav>
 			</Navbar>

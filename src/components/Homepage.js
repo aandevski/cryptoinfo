@@ -12,9 +12,6 @@ export class Homepage extends Component {
 					Most popular currencies
 				</PageHeader>
 		    	<CurrencyListContainer limit={3}/>
-		    	<PageHeader>
-					Most popular mining rigs
-				</PageHeader>
 		    </div>
 		);
 	}
