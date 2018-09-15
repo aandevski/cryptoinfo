@@ -8,11 +8,11 @@ const formUrl = (url, paramDict) => {
 
 export class Cryptocompare {
 	
-	static topCurrencies(page = 0, symbol = 'USD', limit = 10) {
+	static topCurrencies(symbol = 'USD', limit = 10) {
 		const url = 'https://min-api.cryptocompare.com/data/top/totalvol';
 		const params = {
 			tsym: symbol,
-			page: page
+			limit: limit
 		};
 		const endpoint = formUrl(url, params);
 

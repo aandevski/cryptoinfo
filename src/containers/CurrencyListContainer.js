@@ -10,32 +10,41 @@ export class CurrencyListContainer extends Component {
 		super(props);
 
 		this.state = {
+			page: 0,
 			currencies: []
 		};
+
+		this.handlePageChange = this.handlePageChange.bind(this);
 	}
 
 	componentDidMount() {
-		Cryptocompare.topCurrencies(this.props.page, this.props.currencyType, this.props.limit).then(fetchedCurrencies => {
+		Cryptocompare.topCurrencies(this.props.currencyType, this.props.limit).then(fetchedCurrencies => {
 			this.setState({
 				currencies: fetchedCurrencies
 			});
 		});
 	}
 
+	handlePageChange(page) {
+		if(this.state.page === page)
+			return;
+		this.setState({
+			page: page
+		});
+	}
+
 	render() {
-		return <CurrencyList currencies={this.state.currencies} />;
+		return <CurrencyList includePages={this.props.includePages} currencies={this.state.currencies.slice(this.state.page*10, (this.state.page+1)*10)} pageChange={this.handlePageChange} />;
 	}
 
 }
 
 CurrencyListContainer.PropTypes = {
-	page: PropTypes.number,
 	limit: PropTypes.number,
 	currencyType: PropTypes.string
 };
 
 CurrencyListContainer.defaultProps = {
-	page: 0,
 	limit: 10,
 	currencyType: 'USD'
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import {Table} from 'react-bootstrap';
 import { CurrencyRow } from './CurrencyRow';
+import { PageList } from './PageList';
 
 export class CurrencyList extends Component {
 
@@ -27,6 +28,7 @@ export class CurrencyList extends Component {
 						{currencies}
 					</tbody>
 				</Table>
+				{this.props.includePages ? <PageList count={10} function={this.props.pageChange} /> : ""}
 			</div>
 		);
 	}
