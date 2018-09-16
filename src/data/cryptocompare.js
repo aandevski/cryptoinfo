@@ -32,4 +32,20 @@ export class Cryptocompare {
 		});
 	}
 
+	static latestNews() {
+		const url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN';
+
+		return fetch(url).then(response => {
+			if(response.ok) {
+				return response.json();
+			} else {
+				throw new Error('Invalid response!');
+			}
+		}, errorMsg => {
+			console.log(errorMsg);
+		}).then(jsonResponse => {
+			return jsonResponse.Data;
+		});
+	}
+
 }
