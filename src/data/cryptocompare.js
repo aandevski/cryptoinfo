@@ -27,6 +27,9 @@ export class Cryptocompare {
 	}
 
 	static getRate(fsym, tsym) {
+
+		// console.log(fsym, tsym)
+
 		const url = 'https://min-api.cryptocompare.com/data/price'
 		const params = {
 			fsym: fsym,
@@ -35,6 +38,7 @@ export class Cryptocompare {
 		const endpoint=formUrl(url, params)
 
 		return fetch(endpoint).then(handleResponse).then((data) => {
+			console.log(data)
 			return data[tsym]
 		}).catch(handleError)
 
