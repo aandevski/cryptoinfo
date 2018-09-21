@@ -25,4 +25,18 @@ export class Cryptocompare {
 			return jsonResponse.Data;
 		}).catch(handleError)
 	}
+
+	static getRate(fsym, tsym) {
+		const url = 'https://min-api.cryptocompare.com/data/price'
+		const params = {
+			fsym: fsym,
+			tsyms: tsym
+		}
+		const endpoint=formUrl(url, params)
+
+		return fetch(endpoint).then(handleResponse).then((data) => {
+			return data[tsym]
+		}).catch(handleError)
+
+	}
 }
