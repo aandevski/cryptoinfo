@@ -1,10 +1,4 @@
-const formUrl = (url, paramDict) => {
-	let params = [];
-	for(let d in paramDict) {
-		params.push(encodeURIComponent(d) + '=' + encodeURIComponent(paramDict[d]));
-	}
-	return url + '?' + params.join('&');
-};
+import {handleResponse, handleError, formUrl} from './helpers'
 
 export class Cryptocompare {
 	
@@ -16,36 +10,19 @@ export class Cryptocompare {
 		};
 		const endpoint = formUrl(url, params);
 
-		return fetch(endpoint).then(response => {
-			if(response.ok) {
-				return response.json();
-			} else {
-				throw new Error('Invalid response!');
-			}
-		}, errorMsg => {
-			console.log(errorMsg);
-		}).then(jsonResponse => {
+		return fetch(endpoint).then(handleResponse).then(jsonResponse => {
 			jsonResponse.Data.forEach(function(curr) {
 				curr.CoinInfo.price = parseFloat(curr.ConversionInfo.RAW[0].split('~')[5]);
 			});
 			return jsonResponse.Data.slice(0, limit);
-		});
+		}).catch(handleError)
 	}
 
 	static latestNews() {
 		const url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN';
 
-		return fetch(url).then(response => {
-			if(response.ok) {
-				return response.json();
-			} else {
-				throw new Error('Invalid response!');
-			}
-		}, errorMsg => {
-			console.log(errorMsg);
-		}).then(jsonResponse => {
+		return fetch(url).then(handleResponse).then(jsonResponse => {
 			return jsonResponse.Data;
-		});
+		}).catch(handleError)
 	}
-
 }
