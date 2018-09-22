@@ -14,6 +14,7 @@ export class Header extends Component {
 			    </Navbar.Brand>
 			  </Navbar.Header>
 			  <Nav>
+			  	<li><Link to="/news">News</Link></li>
 			  	<li><Link to="/currencies">Currencies</Link></li>
 			  	<li><Link to="/converter">Converter</Link></li>
 			  </Nav>

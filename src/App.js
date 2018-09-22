@@ -6,6 +6,7 @@ import { Homepage } from './components/pages/Homepage';
 import { CurrenciesPage } from './components/pages/Currencies';
 import { CurrencyPage } from './components/pages/Currency';
 import { ConverterPage } from './components/pages/Converter';
+import { NewsPage } from './components/pages/News';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path='/currencies' component={CurrenciesPage} />
             <Route path='/currencies/:id' component={CurrencyPage} />
             <Route path='/converter' component={ConverterPage} />
+            <Route path='/news' component={NewsPage} />
           </Switch>
           </div>
       </div>

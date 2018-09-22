@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 import { PageHeader } from 'react-bootstrap';
-import { CurrencyListContainer } from '../../containers/CurrencyListContainer';
 import { NewsListContainer } from '../../containers/NewsListContainer';
 
-export class Homepage extends Component {
+export class NewsPage extends Component {
 
 	render() {
 		return (
@@ -12,12 +11,7 @@ export class Homepage extends Component {
 				<PageHeader>
 					Latest news
 				</PageHeader>
-				<NewsListContainer limit={2}/>
-				<PageHeader>
-					Most popular currencies
-				</PageHeader>
-		    	<CurrencyListContainer limit={3}/>
-
+		    	<NewsListContainer includePages={true}/>
 		    </div>
 		);
 	}
