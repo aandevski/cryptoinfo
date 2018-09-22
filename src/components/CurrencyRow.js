@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import config from '../config'
+import config from '../config';
 
 export class CurrencyRow extends Component {
 	constructor(props) {
@@ -20,9 +20,9 @@ export class CurrencyRow extends Component {
 				</td>
 				<td>{this.props.details.Name}</td>
 				<td>{this.props.details.FullName}</td>
-				<td>{this.props.details.Algorithm}</td>
-				<td>{this.props.details.ProofType}</td>
-				<td>{this.props.details.price == 0 ? 'N/A' : this.props.details.price}</td>
+				<td>$ {(parseFloat(this.props.conversionInfo.TotalVolume24H)*this.props.details.price).toLocaleString()}</td>
+				<td>$ {(this.props.conversionInfo.Supply*this.props.details.price).toLocaleString()}</td>
+				<td>$ {(this.props.details.price).toLocaleString()}</td>
 			</tr>
 		)
 	}

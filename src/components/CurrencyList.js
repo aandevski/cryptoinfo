@@ -8,7 +8,7 @@ export class CurrencyList extends Component {
 
 	render() {
 		const currencies = this.props.currencies.map((currency, i) => {
-			return <CurrencyRow key={`currency_${i}`} details={currency.CoinInfo} />;
+			return <CurrencyRow key={`currency_${i}`} details={currency.CoinInfo} conversionInfo={currency.ConversionInfo} />;
 		});
 		
 		return (
@@ -19,8 +19,8 @@ export class CurrencyList extends Component {
 							<th>Logo</th>
 							<th>Symbol</th>
 							<th>Coin Name</th>
-							<th>Algorithm</th>
-							<th>Proof Type</th>
+							<th>Volume (24h)</th>
+							<th>Market Cap</th>
 							<th>Price (USD)</th>
 						</tr>
 					</thead>
