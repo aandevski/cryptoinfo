@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Homepage } from './components/pages/Homepage';
 import { CurrenciesPage } from './components/pages/Currencies';
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path='/news' component={NewsPage} />
           </Switch>
           </div>
+          <Footer />
       </div>
     );
   }
