@@ -13,7 +13,7 @@ export default class ConverterContainer extends React.Component {
 		this.state = {
 			rate: 0,
 			fromCurrency: 'BTC',
-			fromCurrencyValue: 0,
+			fromCurrencyValue: 1,
 			toCurrency: 'USD'
 		}
 
@@ -27,16 +27,22 @@ export default class ConverterContainer extends React.Component {
 		this.loadNewRate()
 	}
 
+	componentWillUpdate(newProps, newState) {
+		if(newState.fromCurrency != this.state.fromCurrency || newState.toCurrency != this.state.toCurrency) {
+			this.loadNewRate()
+			return false
+		}
+	}
+
 	loadNewRate() {
 		this.setState({
 			loading: true
-		})
-		Cryptocompare.getRate(this.state.fromCurrency, this.state.toCurrency).then((d) => {
-			this.setState({
-				rate: d,
-				loading: false
-			}, () => {
-				console.log(this.state)
+		}, () => {
+			Cryptocompare.getRate(this.state.fromCurrency, this.state.toCurrency).then((d) => {
+				this.setState({
+					rate: d,
+					loading: false
+				})
 			})
 		})
 	}
@@ -44,9 +50,7 @@ export default class ConverterContainer extends React.Component {
 	handleCurrencyChange(event) {
 		let newState = {}
 		newState[event.target.name] = event.target.value
-		this.setState(newState, () => {
-			this.loadNewRate()
-		})
+		this.setState(newState)
 	}
 
 	handleValueChange(event) {
@@ -60,11 +64,10 @@ export default class ConverterContainer extends React.Component {
 	handleReplacement(event) {
 		const from = this.state.fromCurrency
 		const to = this.state.toCurrency
-		console.log("a")
 		this.setState({
 			fromCurrency: to,
 			toCurrency: from
-		},)
+		})
 	}
 
 	handleRefresh(event) {
