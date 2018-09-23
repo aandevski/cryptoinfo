@@ -3,19 +3,26 @@ import PropTypes from 'prop-types'
 
 import CurrencyDetails from '../components/CurrencyDetails'
 
+import {Cryptocompare} from '../data/cryptocompare'
+
 export default class CurrencyDetailsContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			details: {}
+			coinDetails: {}
 		}
 	}
 
 	componentDidMount() {
+		Cryptocompare.getCurrencyDetails(this.props.id).then(d => {
+			this.setState({
+				coinDetails: d
+			})
+		}) 
 	}
 
 	render() {
-		return <CurrencyDetails id={this.props.id} details={this.state.details}/>
+		return <CurrencyDetails id={this.props.id} coinDetails={this.state.coinDetails}/>
 	}
 }
 
