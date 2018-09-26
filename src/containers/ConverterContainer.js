@@ -14,7 +14,8 @@ export default class ConverterContainer extends React.Component {
 			rate: 0,
 			fromCurrency: 'BTC',
 			fromCurrencyValue: 1,
-			toCurrency: 'USD'
+			toCurrency: 'USD',
+			currencies: []
 		}
 
 		this.handleCurrencyChange = this.handleCurrencyChange.bind(this)
@@ -25,6 +26,12 @@ export default class ConverterContainer extends React.Component {
 
 	componentDidMount() {
 		this.loadNewRate()
+		Cryptocompare.getAllCurrencyNames().then(d=> {
+			d.splice(1,0,'USD')
+			this.setState({
+				currencies: d
+			})
+		})
 	}
 
 	componentWillUpdate(newProps, newState) {
@@ -77,6 +84,8 @@ export default class ConverterContainer extends React.Component {
 	render() {
 		return (
 			<Converter
+				currencies = {this.state.currencies}
+
 				fromCurrency = {this.state.fromCurrency}
 				fromCurrencyValue = {this.state.fromCurrencyValue}
 				toCurrency = {this.state.toCurrency}

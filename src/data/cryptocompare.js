@@ -57,4 +57,16 @@ export class Cryptocompare {
 
 		})
 	} 
+
+	static getAllCurrencyNames() {
+		return this.topCurrencies('USD', 1000).then(data => {
+
+			let result = []
+			for(let i = 0; i<data.length; i++) {
+				result.push(data[i].CoinInfo.Name)
+			}
+
+			return result
+		})
+	}
 }

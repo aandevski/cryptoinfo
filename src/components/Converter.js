@@ -5,6 +5,11 @@ import {FormGroup,FormControl,Row,Col,Button, Glyphicon} from 'react-bootstrap'
 
 export default class Converter extends React.Component {
 	render() {
+
+		let currencies = this.props.currencies.map((el) => {
+			return <option value={el}>{el}</option>
+		})
+
 		return (
 			<div>
 				<Row>
@@ -30,10 +35,7 @@ export default class Converter extends React.Component {
 							value={this.props.fromCurrency}
 							onChange={this.props.handleCurrencyChange}
 						>
-							<option value="BTC">BTC</option>
-							<option value="XMR">XMR</option>
-							<option value="BCH">BCH</option>
-							<option value="USD">USD</option>
+							{currencies}
 						</FormControl>
 					</Col>
 					<Col xs={12} md={2}>
@@ -58,8 +60,7 @@ export default class Converter extends React.Component {
 							value={this.props.toCurrency}
 							onChange={this.props.handleCurrencyChange}
 						>
-							<option value="BTC">BTC</option>
-							<option value="USD">USD</option>
+							{currencies}
 						</FormControl>
 					</Col>
 				</Row>
