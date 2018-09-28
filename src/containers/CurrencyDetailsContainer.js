@@ -9,7 +9,8 @@ export default class CurrencyDetailsContainer extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			coinDetails: {}
+			coinDetails: {},
+			historicalData: []
 		}
 	}
 
@@ -18,11 +19,15 @@ export default class CurrencyDetailsContainer extends React.Component {
 			this.setState({
 				coinDetails: d
 			})
-		}) 
+		})
+		Cryptocompare.getHistoricalData(this.props.id).then(d=> {
+			console.log(d)
+			this.setState({historicalData: d})
+		})
 	}
 
 	render() {
-		return <CurrencyDetails id={this.props.id} coinDetails={this.state.coinDetails}/>
+		return <CurrencyDetails id={this.props.id} coinDetails={this.state.coinDetails} historicalData={this.state.historicalData}/>
 	}
 }
 

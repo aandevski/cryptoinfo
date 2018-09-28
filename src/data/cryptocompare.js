@@ -69,4 +69,18 @@ export class Cryptocompare {
 			return result
 		})
 	}
+
+	static getHistoricalData(symbol) {
+		const url = 'https://min-api.cryptocompare.com/data/histoday'
+		const params = {
+			fsym: symbol,
+			tsym: 'USD',
+			limit: 90
+		}
+		const endpoint = formUrl(url, params)
+		return fetch(endpoint).then(handleResponse).then((data) => {
+			data = data.Data
+			return data
+		}).catch(handleError)
+	}
 }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import config from '../config';
 import {Table} from 'react-bootstrap';
 
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+
 export default class CurrencyDetails extends React.Component {
 	render() {
 		return (
@@ -49,6 +51,19 @@ export default class CurrencyDetails extends React.Component {
 					</tr>
 					</tbody>
 				</Table>
+
+				<div style={{textAlign: 'center' }}>
+					<LineChart
+						width={1000} height={300} data={this.props.historicalData}
+						margin={{top: 20, right: 0, left: 0, bottom: 20}}
+					>
+						<XAxis dataKey="time"/>
+						<YAxis/>
+						<CartesianGrid strokeDasharray="3 3"/>
+						<Tooltip/>
+						<Line type="monotone" dataKey="close" stroke="#82ca9d" />
+					</LineChart>
+				</div>
 			</div>
 		);
 	}
