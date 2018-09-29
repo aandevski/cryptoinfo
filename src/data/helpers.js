@@ -17,3 +17,9 @@ export const formUrl = (url, paramDict) => {
 	}
 	return url + '?' + params.join('&');
 };
+
+export const parseUnixDate = (unixTimestamp) => {
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const date = new Date(unixTimestamp*1000);
+	return months[date.getMonth()] + " " + date.getDate();
+}

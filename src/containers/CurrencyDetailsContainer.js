@@ -21,7 +21,6 @@ export default class CurrencyDetailsContainer extends React.Component {
 			})
 		})
 		Cryptocompare.getHistoricalData(this.props.id).then(d=> {
-			console.log(d)
 			this.setState({historicalData: d})
 		})
 	}

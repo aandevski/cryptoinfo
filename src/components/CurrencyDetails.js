@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import config from '../config';
+import { parseUnixDate } from '../data/helpers';
 import {Table} from 'react-bootstrap';
 
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
@@ -57,7 +58,7 @@ export default class CurrencyDetails extends React.Component {
 						width={1000} height={300} data={this.props.historicalData}
 						margin={{top: 20, right: 0, left: 0, bottom: 20}}
 					>
-						<XAxis dataKey="time"/>
+						<XAxis dataKey="time" tickFormatter={parseUnixDate}/>
 						<YAxis/>
 						<CartesianGrid strokeDasharray="3 3"/>
 						<Tooltip/>
