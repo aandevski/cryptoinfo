@@ -4,7 +4,7 @@ import config from '../config';
 import { parseUnixDate } from '../data/helpers';
 import {Table} from 'react-bootstrap';
 
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
 
 export default class CurrencyDetails extends React.Component {
 	render() {
@@ -18,6 +18,7 @@ export default class CurrencyDetails extends React.Component {
 							display: 'inline-block',
 							marginRight: '20px'
 						}}
+						alt={this.props.coinDetails.FullName}
 					/>
 					<h1
 						style={{display: 'inline-block', marginTop: '50px'}}
@@ -44,7 +45,7 @@ export default class CurrencyDetails extends React.Component {
 						<td>{this.props.coinDetails.Name}</td>
 						<td>{this.props.coinDetails.Algorithm}</td>
 						<td>{this.props.coinDetails.ProofType}</td>
-						<td>{parseInt(this.props.coinDetails.NetHashesPerSecond)}</td>
+						<td>{parseInt(this.props.coinDetails.NetHashesPerSecond, 10)}</td>
 						<td>{this.props.coinDetails.BlockNumber}</td>
 						<td>{this.props.coinDetails.BlockTime}</td>
 						<td>{this.props.coinDetails.BlockReward}</td>

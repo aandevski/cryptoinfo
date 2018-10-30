@@ -14,7 +14,7 @@ export class Cryptocompare {
 			jsonResponse.Data.forEach(function(curr) {
 				curr.CoinInfo.price = parseFloat(curr.ConversionInfo.RAW[0].split('~')[5]);
 			});
-			if(limit == 0) {
+			if(limit === 0) {
 				return jsonResponse
 			}
 			return jsonResponse.Data.slice(0, limit);
@@ -50,7 +50,7 @@ export class Cryptocompare {
 	static getCurrencyDetails(symbol) {
 		return this.topCurrencies('USD', 1000).then(data => {
 			for(let i = 0; i<data.length; i++) {
-				if(data[i].CoinInfo.Name == symbol) {
+				if(data[i].CoinInfo.Name === symbol) {
 					return data[i].CoinInfo
 				}
 			}

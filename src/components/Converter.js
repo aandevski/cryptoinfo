@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import {FormGroup,FormControl,Row,Col,Button, Glyphicon} from 'react-bootstrap'
+import {FormControl,Row,Col,Button, Glyphicon} from 'react-bootstrap'
 
 export default class Converter extends React.Component {
 	render() {

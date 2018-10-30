@@ -4,9 +4,7 @@ import config from '../config';
 import {Link} from 'react-router-dom'
 
 export class CurrencyRow extends Component {
-	constructor(props) {
-		super(props)
-	}
+
 	render() {
 		return (
 			<tr>
@@ -14,6 +12,7 @@ export class CurrencyRow extends Component {
 					<img
 						src={config.baseUrl + this.props.details.ImageUrl}
 						style={{width: 50}}
+						alt={this.props.details.FullName}
 					/>
 				</td>
 				<td><Link to={"currencies/"+this.props.details.Name}>{this.props.details.Name}</Link></td>

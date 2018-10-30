@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import Converter from '../components/Converter'
 
@@ -35,7 +34,7 @@ export default class ConverterContainer extends React.Component {
 	}
 
 	componentWillUpdate(newProps, newState) {
-		if(newState.fromCurrency != this.state.fromCurrency || newState.toCurrency != this.state.toCurrency) {
+		if(newState.fromCurrency !== this.state.fromCurrency || newState.toCurrency !== this.state.toCurrency) {
 			this.loadNewRate()
 			return false
 		}
