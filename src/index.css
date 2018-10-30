@@ -1,5 +1,27 @@
+html, body, #root, #app {
+  height:100%;
+}
+
+#push {
+	height: 100px;
+}
+
+#content {
+	min-height: 100%;
+	margin-bottom: -100px;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }

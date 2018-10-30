@@ -12,18 +12,21 @@ import { NewsPage } from './components/pages/News';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <div className="container">
-          <Switch>
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/currencies' component={CurrenciesPage} />
-            <Route path='/currencies/:id' component={CurrencyPage} />
-            <Route path='/converter' component={ConverterPage} />
-            <Route path='/news' component={NewsPage} />
-          </Switch>
+      <div id="app">
+        <div id="content">
+          <Header />
+          <div className="container">
+            <Switch>
+              <Route exact path='/' component={Homepage} />
+              <Route exact path='/currencies' component={CurrenciesPage} />
+              <Route path='/currencies/:id' component={CurrencyPage} />
+              <Route path='/converter' component={ConverterPage} />
+              <Route path='/news' component={NewsPage} />
+            </Switch>
           </div>
-          <Footer />
+          <div id="push"></div>  
+        </div>
+        <Footer />
       </div>
     );
   }
